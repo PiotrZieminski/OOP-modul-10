@@ -2,7 +2,7 @@ $(function() {
     // Zmienne
     var table = {
         name: 'projekt',
-        element: $('div')
+        element: $('div').addClass()
     };
     var column = {
         id: '12j82da20k',
@@ -18,8 +18,8 @@ $(function() {
     function randomString() {
         var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
         var str = '';
-        var i = 0;
-        for (i = 0; i < 10; i++) {
+        //var i = 0;
+        for (var i = 0; i < 10; i++) {
             str += chars[Math.floor(Math.random() * chars.length)];
         }
         return str;
@@ -32,11 +32,11 @@ $(function() {
         this.$element = createColumn();
 
         function createColumn() {
-            var $column = $('<div>').addClass('column');
+            var $column = $('<div>').addClass('column col-md-4');
             var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
             var $columnCardList = $('<ul>').addClass('column-card-list');
-            var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-            var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę');
+            var $columnDelete = $('<button>').addClass('btn btn-danger').text('x');
+            var $columnAddCard = $('<button>').addClass('add-card btn btn-success').text('Dodaj kartę');
             $columnDelete.click(function() {
                 self.removeColumn();
             });
@@ -68,9 +68,9 @@ $(function() {
         this.$element = createCard(); //
 
         function createCard() {
-            var $card = $('<li>').addClass('card');
+            var $card = $('<p>').addClass('card');
             var $cardDescription = $('<p>').addClass('card-description').text(self.description);
-            var $cardDelete = $('<button>').addClass('btn-delete').text('x');
+            var $cardDelete = $('<button>').addClass('btn btn-danger').text('x');
             $cardDelete.click(function(){
                 self.removeCard();
             });
@@ -109,9 +109,13 @@ $(function() {
     var doneColumn = new Column('Skończone');
 
     // DODAWANIE KOLUMN DO TABLICY
-    board.addColumn(todoColumn);
-    board.addColumn(doingColumn);
-    board.addColumn(doneColumn);
+    $('button[class="create-column btn btn-success"]').click(function () {
+        board.addColumn(todoColumn);
+        board.addColumn(doingColumn);
+        board.addColumn(doneColumn);
+        todoColumn.addCard(card1);
+        doingColumn.addCard(card2);
+    });
 
     // TWORZENIE NOWYCH EGZEMPLARZY KART
     var card1 = new Card('Nowe zadanie');
@@ -120,6 +124,4 @@ $(function() {
     // DODAWANIE KART DO KOLUMN
     todoColumn.addCard(card1);
     doingColumn.addCard(card2);
-
-
 });
