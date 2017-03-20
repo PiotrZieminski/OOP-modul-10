@@ -1,5 +1,5 @@
 /node_modules
 
 $ cat .gitignore
-style_inne.css
-style_inne.css.map
+style.css
+style.css.map
