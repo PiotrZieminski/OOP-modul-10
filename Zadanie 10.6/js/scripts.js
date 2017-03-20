@@ -1,9 +1,9 @@
 $(function() {
     // Zmienne
-    var table = {
+    /*var table = {
         name: 'projekt',
         element: $('div').addClass()
-    };
+    };*/
     var column = {
         id: '12j82da20k',
         name: 'todo',
