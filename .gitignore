@@ -1,5 +1,5 @@
 /node_modules
 
 $ cat .gitignore
-Zadanie 10.6/css/style.css
-Zadanie 10.6/css/style.css.map
+*.css
+*.css.map
