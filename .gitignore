@@ -1,4 +1,4 @@
 /node_modules
 $ cat .gitignore
-*.css
-*.css.map
+$ cat *.css
+$ cat *.css.map
